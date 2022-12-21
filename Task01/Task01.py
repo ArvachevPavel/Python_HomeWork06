@@ -1,16 +1,13 @@
 import math
-
-nums = []
-gcds = []
-
+import functools
+ 
+ 
+a = []
 while True:
-    a = input()
-    if not a:
+    tmp = input('Введите число: ')
+    if tmp:
+        a.append(int(tmp))
+    else:
         break
-    nums.append(int(a))
 
-
-gcds = [math.gcd(nums[i], nums[i + 1]) for i in range(len(nums) - 1)]
-
-print(gcds)
-
+print(f"Наименьшее общее кратное этих чисел: {functools.reduce(lambda x, y: math.gcd(x, y), a)}")
